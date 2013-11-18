@@ -16,7 +16,30 @@ try {
 } catch (SqlException exception) {
   // do something useful here
 } finally {
-  if (sqlBuilder != null) {
     sqlBuilder.close();
 }
 ```
+
+In case you want to work with transactions, you can do it like this:
+```
+SqlBuilder sqlBuilder = null
+try {
+  ResultSet resultSet = sqlBuilder
+    .withTransaction()
+    .prepareStatement("select username from User where id = ?")
+    .withParameter(3l)
+    .resultSet();
+  // do something here
+  sqlBuilder.continueWith()
+    .prepareStatement("update User set username = ? where id = ?")
+    .withParameter("test")
+    .withParameter(3l)
+    .update();
+  sqlBuilder.commit()
+} catch (SqlException exception) {
+  // do something useful here
+} finally {
+    sqlBuilder.close();
+}
+```
+
