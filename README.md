@@ -1,4 +1,4 @@
-FluentJdbc  [![Build Status](https://travis-ci.org/patka/FluentJdbc.png)](https://travis-ci.org/patka/FluentJdbc)
+FluentJdbc  [![Build Status](https://travis-ci.org/patka/FluentJdbc.png)](https://travis-ci.org/patka/FluentJdbc) [![Coverage Status][![Coverage Status](https://coveralls.io/repos/patka/FluentJdbc/badge.png?branch=master)](https://coveralls.io/r/patka/FluentJdbc?branch=master)
 ==========
 
 FluentJdbc is a very simple wrapper around the JDBC interface. It is a very small
