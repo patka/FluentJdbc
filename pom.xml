@@ -9,6 +9,25 @@
     <version>1.0-SNAPSHOT</version>
     <description>Syntactic sugar for JDBC</description>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/patka/FluentJdbc</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>patka</id>
+            <name>Patrick Kranz</name>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
