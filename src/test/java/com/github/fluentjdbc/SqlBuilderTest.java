@@ -138,6 +138,25 @@ public class SqlBuilderTest {
     @Test
     public void shouldCommitTransactionWhenCommitOnOpenConnectionGiven() throws SQLException {
         sqlBuilder.commit();
+        verify(connectionMock, times(1)).commit();
+    }
+
+    @Test
+    public void shouldEnableAutoCommitWhenWithoutTransactionGiven() throws SQLException {
+        sqlBuilder.prepareStatement("select 1 from dual").withoutTransaction();
+        verify(connectionMock, atLeastOnce()).setAutoCommit(true);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void shouldThrowExceptionWhenRollbackOnAlreadyClosedBuilderGiven() throws SQLException {
+        sqlBuilder.close();
+        sqlBuilder.rollback();
+    }
+
+    @Test
+    public void shouldRollbackTransactionWhenRollbackOnOpenConnectionGiven() throws SQLException {
+        sqlBuilder.rollback();
+        verify(connectionMock, times(1)).rollback();
     }
 
    @Test
