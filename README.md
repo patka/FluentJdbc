@@ -7,7 +7,7 @@ when working with plain JDBC without introducing a new "framework".
 
 With FluentJdbc you can write code like this:
 ```
-SqlBuilder sqlBuilder = null
+SqlBuilder sqlBuilder = new SqlBuilder(jdbcDataSource);
 try {
   ResultSet resultSet = sqlBuilder
     .prepareStatement("select username from User where id = ?")
@@ -22,7 +22,7 @@ try {
 
 In case you want to work with transactions, you can do it like this:
 ```
-SqlBuilder sqlBuilder = null
+SqlBuilder sqlBuilder = new SqlBuilder(jdbcDataSource);
 try {
   ResultSet resultSet = sqlBuilder
     .withTransaction()
